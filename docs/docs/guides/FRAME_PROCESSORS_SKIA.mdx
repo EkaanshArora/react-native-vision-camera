@@ -51,7 +51,8 @@ const invertColorsFilter = Skia.RuntimeEffect.Make(`
     return vec4((1.0 - color).rgb, 1.0);
   }
 `)
-const paint = Skia.Paint(invertColorsFilter)
+const paint = Skia.Paint();
+paint.setShader(invertColorsFilter);
 
 const frameProcessor = useSkiaFrameProcessor((frame) => {
   'worklet'
